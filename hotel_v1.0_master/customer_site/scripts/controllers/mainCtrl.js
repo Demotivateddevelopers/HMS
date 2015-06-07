@@ -32,5 +32,20 @@ define(['app'], function(app){
                     "url":"#/rooms/index",
                     "selected": false
                }]
+
+            $scope.selectMenuOnLoad = function(){
+                var path = $location.path().split('/')[1];
+                angular.forEach($scope.menuConfig, function(v, k){
+                    if(v.key === path){
+                        $scope.menuConfig[k].selected = true;
+                    }else{
+                        $scope.menuConfig[k].selected = false;
+                    }
+                });
+            }
+
+            $scope.$on('$routeChangeSuccess', function(next, current) {
+                $scope.selectMenuOnLoad()
+            });
     });
 });

@@ -4,16 +4,6 @@ define([], function()
     return {
         defaultRoutePath: '/home',
         routes: {
-            '/login': {
-                templateUrl: 'modules/login/views/login.html',
-                controller:'loginCtrl',               
-                dependencies: ['../modules/login/scripts/controllers/loginCtrl']
-            },
-            '/signup': {
-                templateUrl: 'modules/login/views/signup.html',
-                controller:'signUpCtrl',
-                dependencies: ['../modules/login/scripts/controllers/signUpCtrl']
-            },
             '/home': {
                 templateUrl: 'modules/home/views/home.html',
                 controller:'homeCtrl',
@@ -31,13 +21,15 @@ define([], function()
             },
             '/rooms/index': {
                 templateUrl: 'modules/rooms/views/index.html',
-                controller:'',
-                dependencies: []
+                controller:'roomsCtrl',
+                dependencies: ['../modules/rooms/scripts/controllers/roomsCtrl',
+                                '../modules/rooms/scripts/directives/directive']
             },
             '/rooms/show/:id': {
                 templateUrl: 'modules/rooms/views/show.html',
                 controller:'',
-                dependencies: []
+                dependencies: ['../modules/rooms/scripts/controllers/roomsCtrl',
+                    '../modules/rooms/scripts/directives/directive']
             }
         }
     };

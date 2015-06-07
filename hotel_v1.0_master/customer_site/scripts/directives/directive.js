@@ -23,6 +23,7 @@ define(['app'], function(app)
             replace: true
         };
     });
+
     app.directive('mainFooter', function() {
         return {
             restrict: 'E',
@@ -48,4 +49,28 @@ define(['app'], function(app)
                     '</div>'
         };
     });
+
+    app.directive('datePicker', function () {
+        return {
+            restrict: 'A',
+            link: function (scope, element, attrs, ngModelCtrl) {
+                $(element).datepicker({
+                    dateFormat: 'dd MM, yy',
+                    onSelect: function (date) {
+                    }
+                });
+                element.parent().append('<i class="fa fa-calendar date-picker-calender"></i>');
+            }
+        };
+    });
+
+    app.directive('room', function() {
+        return {
+            restrict: 'AE',
+            transclude: true,
+            templateUrl:'views/room-list-card.html'
+        };
+    });
+
+
 });

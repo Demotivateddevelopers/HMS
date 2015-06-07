@@ -8,6 +8,7 @@ require.config({
         angularResource: 'vendors/angular/angular-resource',
         angularCookies: 'vendors/angular/angular-cookies',
         jquery: 'vendors/jquery/jquery-2.1.3.min',
+        jqueryUi: 'vendors/jquery/jquery-ui.min',
         angularStorage: 'vendors/auth0/angular-storage',
         bootstrap: 'vendors/bootstrap/bootstrap.min',
         app:'app'
@@ -15,7 +16,7 @@ require.config({
 	shim: {
 		'app': {
 			deps: ['angular', 'angularRoute', 'angularStorage', 'angularAnimate','angularResource', 'angularCookies',
-                'jquery', 'bootstrap']
+                'jquery', 'jqueryUi','bootstrap']
 		},
 		'angularRoute': {
 			deps: ['angular']
@@ -31,6 +32,9 @@ require.config({
         },
         'angularStorage': {
             deps: ['angular']
+        },
+        'jqueryUi': {
+            deps: ['jquery']
         },
         'bootstrap': {
             deps: ['jquery']
