@@ -23,7 +23,8 @@ define([], function()
                 templateUrl: 'modules/rooms/views/index.html',
                 controller:'roomsCtrl',
                 dependencies: ['../modules/rooms/scripts/controllers/roomsCtrl',
-                                '../modules/rooms/scripts/directives/directive']
+                                '../modules/rooms/scripts/directives/directive',
+                                '../modules/rooms/scripts/services/services']
             },
             '/rooms/show/:id': {
                 templateUrl: 'modules/rooms/views/show.html',

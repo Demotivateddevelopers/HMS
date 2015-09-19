@@ -68,6 +68,11 @@ define(['app'], function(app)
         return {
             restrict: 'AE',
             transclude: true,
+            scope:{
+                obj:"="
+            },
+            controller: function ($scope, $element, $attrs) {
+            },
             templateUrl:'views/room-list-card.html'
         };
     });
