@@ -19,6 +19,11 @@ define([], function()
                 controller:'',
                 dependencies: []
             },
+            '/profile': {
+                templateUrl: 'modules/profile/views/profile.html',
+                controller:'',
+                dependencies: []
+            },
             '/rooms/index': {
                 templateUrl: 'modules/rooms/views/index.html',
                 controller:'roomsCtrl',
