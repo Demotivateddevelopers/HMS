@@ -8,16 +8,35 @@ define(['app'], function(app)
             scope: {
                 "menuNavigation" : "="
             },
-            controller: function($scope, $element) {
+            controller: function($scope, $element, $location) {
                 $scope.selectMenu = function(obj, sel){
-                    angular.forEach(obj, function(v, k){
-                        if(obj[k].key === sel.key){
-                            obj[k].selected = true;
+                    angular.forEach(obj.main, function(v, k){
+                        if(obj.main[k].key === sel.key){
+                            obj.main[k].selected = true;
                         }else{
-                            obj[k].selected = false;
+                            obj.main[k].selected = false;
+                        }
+                    });
+
+                    angular.forEach(obj.user, function(v, k){
+                        if(obj.user[k].key === sel.key){
+                            obj.user[k].selected = true;
+                        }else{
+                            obj.user[k].selected = false;
                         }
                     });
                 }
+
+                $scope.init = function(){
+                    var selKey = $location.url().split('/');
+                    var sel = {
+                        "key" : selKey[1]
+                    }
+
+                    $scope.selectMenu($scope.menuNavigation, sel);
+                }
+
+                $scope.init();
             },
             templateUrl:'views/header.html',
             replace: true
@@ -27,7 +46,7 @@ define(['app'], function(app)
     app.directive('mainFooter', function() {
         return {
             restrict: 'E',
-            transclude: true,
+            transclude: false,
             templateUrl:'views/footer.html'
         };
     });

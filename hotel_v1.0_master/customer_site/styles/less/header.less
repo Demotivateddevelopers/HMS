@@ -1,3 +1,4 @@
+@import 'variables.less';
 .main-header{
   background: @bg-main-header;
   padding: 22px 28px 0 22px;
@@ -36,8 +37,15 @@
   .user-nav{
     ul{
       li{
-        color: #a2a2a2;
-        padding: 0 12px;
+        color: #a2a2a2;        
+        cursor: pointer;
+        a{
+          padding: 20px 10px;
+        }
+      }
+      .selected {
+          border-bottom: 2px solid @selected-color;
+          color: @selected-border;
       }
     }
   }
